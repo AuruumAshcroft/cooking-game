@@ -32,18 +32,15 @@ const shotsOut = join(outputDir, 'screenshots');
 cpSync(gameSource, gameOut, { recursive: true });
 cpSync(shotsSource, shotsOut, { recursive: true });
 
-const dossier = buildDossier({
-  game_dir: gameOut,
-  screenshots_dir: shotsOut,
+const dossier = buildDossier(outputDir, {
   text_max_bytes: 163840,
-  screenshots_max: 4,
-  screenshots_max_bytes: 262144,
+  screenshots: { max: 4, max_bytes: 262144 },
   game_max_files: 993,
   game_max_bytes: 50331648,
   game_path_max_bytes: 1000,
 });
 
-if (typeof dossier !== 'string' || dossier.length === 0) {
+if (!(dossier instanceof Uint8Array) || dossier.length === 0) {
   throw new Error('buildDossier returned an empty dossier');
 }
 
