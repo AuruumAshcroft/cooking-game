@@ -46,6 +46,8 @@ export function stageScene(name) {
     game.level = 3;
     game.lives = 0;
     game.plate = [];
+    game.message = '';
+    game.messageTimer = 0;
   }
   // 'start' (and anything else) keeps the plain title screen.
 }

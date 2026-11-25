@@ -148,24 +148,24 @@ function drawKitchenBackground(ctx) {
     ctx.lineTo(x, 560);
     ctx.stroke();
   }
-  // Shelf with pots, top left of the work area.
+  // Shelf with pots, just below the order board.
   ctx.fillStyle = '#8c5a2b';
-  ctx.fillRect(40, 168, 340, 14);
+  ctx.fillRect(40, 182, 340, 14);
   ctx.fillStyle = '#5b7fa6';
   ctx.beginPath();
-  ctx.arc(100, 158, 26, Math.PI, 0);
+  ctx.arc(100, 172, 26, Math.PI, 0);
   ctx.fill();
-  ctx.fillRect(74, 158, 52, 10);
+  ctx.fillRect(74, 172, 52, 10);
   ctx.fillStyle = '#c96f2e';
   ctx.beginPath();
-  ctx.arc(200, 158, 26, Math.PI, 0);
+  ctx.arc(200, 172, 26, Math.PI, 0);
   ctx.fill();
-  ctx.fillRect(174, 158, 52, 10);
+  ctx.fillRect(174, 172, 52, 10);
   ctx.fillStyle = '#7d8a4a';
   ctx.beginPath();
-  ctx.arc(300, 158, 26, Math.PI, 0);
+  ctx.arc(300, 172, 26, Math.PI, 0);
   ctx.fill();
-  ctx.fillRect(274, 158, 52, 10);
+  ctx.fillRect(274, 172, 52, 10);
   // Wooden counter along the bottom.
   ctx.fillStyle = '#b07a45';
   ctx.fillRect(0, 560, VIEW_WIDTH, 160);

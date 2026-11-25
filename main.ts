@@ -43,4 +43,17 @@ const dossier = buildDossier({
   game_path_max_bytes: 1000,
 });
 
-writeFileSync(join(outputDir, 'dossier.json'), dossier, 'utf8');
+if (typeof dossier !== 'string' || dossier.length === 0) {
+  throw new Error('buildDossier returned an empty dossier');
+}
+
+const dossierPath = join(outputDir, 'dossier.json');
+writeFileSync(dossierPath, dossier, 'utf8');
+
+// Fail fast if anything the grader needs is missing from /output.
+for (const needed of [join(gameOut, 'index.html'), dossierPath]) {
+  if (!existsSync(needed)) {
+    throw new Error(`expected output file missing: ${needed}`);
+  }
+}
+console.log(`wrote ${dossierPath} (${dossier.length} bytes)`);
